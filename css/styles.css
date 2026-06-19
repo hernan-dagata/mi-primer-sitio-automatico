@@ -149,3 +149,36 @@ footer{
 .neon .card{
     box-shadow:0 0 20px #38bdf8;
 }
+
+.user-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+
+.user-card {
+    background: #151b2e;
+    border-radius: 15px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 0 15px #00ffff55;
+    text-align: center;
+}
+
+
+.user-card h3 {
+    color: #38bdf8;
+}
+
+
+.user-card p {
+    color: white;
+}
+
+
+.user-card small {
+    color: #aaa;
+}

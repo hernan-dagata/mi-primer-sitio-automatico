@@ -11,55 +11,40 @@
 
         <section class="hero">
 
-            <h1>⚡ MI PÁGINA COOL ⚡</h1>
-
-            <p>
-                Diseño futurista hecho con HTML, CSS y JavaScript
-            </p>
-
-            <button id="btnEntrar">
-                ENTRAR
-            </button>
+            <h1>⚡ Usuarios ⚡</h1>
 
             <h2>Usuarios registrados</h2>
 
-            <ul id="userList"></ul>
+            <div id="userContainer" class="user-container"></div>
 
         </section>
 
-        <section class="cards">
+        <section class="hero">
 
-            <article class="card">
-                <span>🚀</span>
-                <h2>Rápido</h2>
-                <p>Una web moderna y elegante.</p>
-            </article>
+            <h1>⚡ Crear usuario ⚡</h1>
 
-            <article class="card">
-                <span>🔥</span>
-                <h2>Potente</h2>
-                <p>HTML puro con estilo brutal.</p>
-            </article>
+            <form id="userForm" class="user-form">
 
-            <article class="card">
-                <span>💎</span>
-                <h2>Premium</h2>
-                <p>Minimalista pero muy pro.</p>
-            </article>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Nombre"
+                    required>
 
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Correo"
+                    required>
+
+                <button type="submit">
+                    Guardar usuario
+                </button>
+
+            </form>
         </section>
 
-        <section class="galeria">
-
-            <h2>GALERÍA</h2>
-
-            <div class="imagenes">
-                <div class="imagen">🌌</div>
-                <div class="imagen">⚡</div>
-                <div class="imagen">🪐</div>
-            </div>
-
-        </section>
+        <div id="userContainer"></div>
 
         <footer>
             © 2026 - Página Ultra Cool
