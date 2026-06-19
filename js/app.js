@@ -1,17 +1,41 @@
-const boton = document.getElementById("btnEntrar");
+const SUPABASE_URL = "https://axmywsefljqnnpzsvvha.supabase.co";
+const SUPABASE_KEY = "sb_publishable_ZLxFry6SNTIErzsTFAiitA_gkYx6Pd9";
 
-boton.addEventListener("click", () => {
 
-    document.querySelector(".cards").scrollIntoView({
-        behavior: "smooth"
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+async function cargarUsuarios() {
+
+    const { data, error } = await supabaseClient
+        .from("usuarios")
+        .select("*");
+
+
+    if (error) {
+        console.log("Error:", error);
+        return;
+    }
+
+
+    const lista = document.getElementById("userList");
+
+
+    data.forEach(usuario => {
+
+        const item = document.createElement("li");
+
+        item.textContent =
+            `${usuario.name} - ${usuario.email}`;
+
+
+        lista.appendChild(item);
+
     });
 
-});
+}
 
-document
-.getElementById("modoBtn")
-.addEventListener("click", () => {
 
-    document.body.classList.toggle("neon");
-
-});
+cargarUsuarios();
