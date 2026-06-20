@@ -11,20 +11,38 @@ permissions:
   id-token: write
 
 jobs:
-  deploy:
+
+  # =========================
+  # 🧱 BUILD STAGE
+  # =========================
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Descargar código
         uses: actions/checkout@v4
 
+      - name: Crear paquete de build
+        run: |
+          mkdir dist
+          cp -r index.html css js dist/
+
+      - name: Subir artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+
+  # =========================
+  # 🚀 DEPLOY STAGE
+  # =========================
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Configurar Pages
         uses: actions/configure-pages@v5
 
-      - name: Subir archivos
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
-      - name: Publicar
+      - name: Publicar en GitHub Pages
         uses: actions/deploy-pages@v4
